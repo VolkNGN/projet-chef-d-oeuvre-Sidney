@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './Carousel.css';
 
 // Import des images
@@ -11,10 +11,6 @@ import Carousel6 from '../../Assets/photos/Carousel6.jpg';
 import Carousel7 from '../../Assets/photos/Carousel7.jpg';
 import Carousel8 from '../../Assets/photos/Carousel8.jpg';
 import Carousel9 from '../../Assets/photos/Carousel9.jpg';
-
-// Import des icônes
-import ArrowNext from '../../Assets/Icons/arrownext.svg';
-import ArrowPrev from '../../Assets/Icons/arrowprev.svg';
 
 const images = [
   Carousel1,
@@ -31,6 +27,9 @@ const images = [
 const Carousel = () => {
   const [rotationAngle, setRotationAngle] = useState(0);
   const [rotationSpeed, setRotationSpeed] = useState(0.05); // Vitesse réduite pour la rotation automatique
+  const [translateZ, setTranslateZ] = useState(600); // Valeur initiale pour la profondeur Z
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
   const carouselRef = useRef(null);
   const requestRef = useRef(null);
   const totalImages = images.length;
@@ -38,19 +37,21 @@ const Carousel = () => {
   const defaultRotationSpeed = 0.05; // Vitesse de rotation automatique réduite
 
   // Fonction d'animation
-  const animate = () => {
-    setRotationAngle((prevAngle) => prevAngle + rotationSpeed);
+  const animate = useCallback(() => {
+    if (!isDragging) { // Ne continue la rotation que si l'utilisateur ne fait pas de drag
+      setRotationAngle((prevAngle) => prevAngle + rotationSpeed);
+    }
     requestRef.current = requestAnimationFrame(animate);
-  };
+  }, [rotationSpeed, isDragging]);
 
   useEffect(() => {
     requestRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(requestRef.current);
-  }, [rotationSpeed]);
+  }, [animate]);
 
-  // Effet de suivi de la souris
+  // Effet de suivi de la souris (pour desktop)
   const handleMouseMove = (e) => {
-    if (carouselRef.current) {
+    if (carouselRef.current && !isDragging) { // Vérifie si le drag n'est pas actif
       const rect = carouselRef.current.getBoundingClientRect();
       const mouseX = e.clientX - rect.left;
       const width = rect.width;
@@ -64,25 +65,115 @@ const Carousel = () => {
 
   const handleMouseEnter = () => {
     // Arrêter la rotation automatique lors du survol
-    setRotationSpeed(0);
+    if (!isDragging) {
+      setRotationSpeed(0);
+    }
   };
 
   const handleMouseLeave = () => {
     // Reprendre la rotation automatique
-    setRotationSpeed(defaultRotationSpeed);
+    if (!isDragging) {
+      setRotationSpeed(defaultRotationSpeed);
+    }
   };
+
+  // Ajustement dynamique de la profondeur Z selon la largeur de l'écran
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width > 1024) {
+        setTranslateZ(600); // Valeur pour les grands écrans
+      } else if (width > 768) {
+        setTranslateZ(450); // Valeur pour les tablettes
+      } else if (width > 480) {
+        setTranslateZ(350); // Valeur pour les téléphones portables
+      } else {
+        setTranslateZ(200); // Valeur pour les petits téléphones
+      }
+    };
+
+    handleResize(); // Appelle initialement pour définir la profondeur Z
+
+    window.addEventListener('resize', handleResize); // Ajoute un écouteur d'événements pour gérer les redimensionnements
+
+    return () => window.removeEventListener('resize', handleResize); // Nettoie l'écouteur lors du démontage du composant
+  }, []);
+
+  // Gestion du début du toucher
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].clientX); // Enregistre la position initiale du toucher
+    setRotationSpeed(0); // Arrête la rotation automatique lors du drag
+  };
+
+  // Gestion du mouvement de glissement
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    const currentX = e.touches[0].clientX;
+    const deltaX = currentX - startX;
+    const newRotationAngle = rotationAngle + (deltaX / window.innerWidth) * 180; // Ajustement de l'angle de rotation
+    setRotationAngle(newRotationAngle);
+    setStartX(currentX); // Met à jour la position de départ pour le prochain mouvement
+  };
+
+  // Fin du toucher
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    setRotationSpeed(defaultRotationSpeed); // Reprend la rotation automatique après le drag
+  };
+
+  // Gestion du début du drag avec la souris
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.clientX); // Enregistre la position initiale de la souris
+    setRotationSpeed(0); // Arrête la rotation automatique lors du drag
+  };
+
+  // Gestion du mouvement de glissement avec la souris
+  const handleMouseDrag = (e) => {
+    if (!isDragging) return;
+    const currentX = e.clientX;
+    const deltaX = currentX - startX;
+    const newRotationAngle = rotationAngle + (deltaX / window.innerWidth) * 180; // Ajustement de l'angle de rotation
+    setRotationAngle(newRotationAngle);
+    setStartX(currentX); // Met à jour la position de départ pour le prochain mouvement
+  };
+
+  // Fin du drag avec la souris
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    setRotationSpeed(defaultRotationSpeed); // Reprend la rotation automatique après le drag
+  };
+
+  useEffect(() => {
+    const handleMouseUpOutside = () => {
+      if (isDragging) {
+        setIsDragging(false);
+        setRotationSpeed(defaultRotationSpeed); // Reprend la rotation automatique après le drag
+      }
+    };
+
+    window.addEventListener('mouseup', handleMouseUpOutside); // S'assure que le drag s'arrête si l'utilisateur relâche la souris en dehors du conteneur
+
+    return () => window.removeEventListener('mouseup', handleMouseUpOutside);
+  }, [isDragging]);
 
   return (
     <div
       className="carousel-container"
       ref={carouselRef}
-      onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onMouseDown={handleMouseDown}
+      onMouseMove={(e) => {
+        handleMouseMove(e);
+        handleMouseDrag(e);
+      }}
+      onMouseUp={handleMouseUp}
     >
-      <button className="carousel-button prev" onClick={(e) => e.preventDefault()}>
-        <img src={ArrowPrev} alt="Previous" />
-      </button>
       <div
         className="carousel"
         style={{
@@ -95,16 +186,13 @@ const Carousel = () => {
             key={index}
             className="carousel-item"
             style={{
-              transform: `rotateY(${index * angleIncrement}deg) translateZ(625px)`,
+              transform: `rotateY(${index * angleIncrement}deg) translateZ(${translateZ}px)`,
             }}
           >
-            <img src={image} alt={`carousel-${index}`} />
+            <img src={image} alt={`carousel-${index}`} draggable="false" />
           </div>
         ))}
       </div>
-      <button className="carousel-button next" onClick={(e) => e.preventDefault()}>
-        <img src={ArrowNext} alt="Next" />
-      </button>
     </div>
   );
 };
