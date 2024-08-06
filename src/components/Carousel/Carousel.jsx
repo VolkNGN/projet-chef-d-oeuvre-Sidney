@@ -32,13 +32,16 @@ const Carousel = () => {
   const [startX, setStartX] = useState(0);
   const carouselRef = useRef(null);
   const requestRef = useRef(null);
+  const titleRef = useRef(null);
+  const [titleVisible, setTitleVisible] = useState(false); // État pour la visibilité du titre
   const totalImages = images.length;
   const angleIncrement = 360 / totalImages;
   const defaultRotationSpeed = 0.05; // Vitesse de rotation automatique réduite
 
   // Fonction d'animation
   const animate = useCallback(() => {
-    if (!isDragging) { // Ne continue la rotation que si l'utilisateur ne fait pas de drag
+    if (!isDragging) {
+      // Ne continue la rotation que si l'utilisateur ne fait pas de drag
       setRotationAngle((prevAngle) => prevAngle + rotationSpeed);
     }
     requestRef.current = requestAnimationFrame(animate);
@@ -51,7 +54,8 @@ const Carousel = () => {
 
   // Effet de suivi de la souris (pour desktop)
   const handleMouseMove = (e) => {
-    if (carouselRef.current && !isDragging) { // Vérifie si le drag n'est pas actif
+    if (carouselRef.current && !isDragging) {
+      // Vérifie si le drag n'est pas actif
       const rect = carouselRef.current.getBoundingClientRect();
       const mouseX = e.clientX - rect.left;
       const width = rect.width;
@@ -88,7 +92,7 @@ const Carousel = () => {
       } else if (width > 480) {
         setTranslateZ(350); // Valeur pour les téléphones portables
       } else {
-        setTranslateZ(200); // Valeur pour les petits téléphones
+        setTranslateZ(240); // Valeur pour les petits téléphones
       }
     };
 
@@ -158,40 +162,75 @@ const Carousel = () => {
     return () => window.removeEventListener('mouseup', handleMouseUpOutside);
   }, [isDragging]);
 
+  // Détection de l'entrée du titre dans la fenêtre de visualisation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTitleVisible(true);
+            observer.unobserve(entry.target); // Arrête d'observer une fois visible
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Triggers when 10% of the element is visible
+      }
+    );
+
+    if (titleRef.current) {
+      observer.observe(titleRef.current);
+    }
+
+    return () => {
+      if (titleRef.current) {
+        observer.unobserve(titleRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div
-      className="carousel-container"
-      ref={carouselRef}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-      onMouseDown={handleMouseDown}
-      onMouseMove={(e) => {
-        handleMouseMove(e);
-        handleMouseDrag(e);
-      }}
-      onMouseUp={handleMouseUp}
-    >
-      <div
-        className="carousel"
-        style={{
-          transform: `rotateY(${rotationAngle}deg)`,
-          transition: 'transform 0.1s linear', // Transition lisse et rapide
-        }}
+    <div>
+      <h2
+        className={`carousel-title ${titleVisible ? 'visible' : ''}`}
+        ref={titleRef}
       >
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className="carousel-item"
-            style={{
-              transform: `rotateY(${index * angleIncrement}deg) translateZ(${translateZ}px)`,
-            }}
-          >
-            <img src={image} alt={`carousel-${index}`} draggable="false" />
-          </div>
-        ))}
+        L'art de la tapisserie d'ameublement, où chaque fil raconte une histoire.
+      </h2>
+      <div
+        className="carousel-container"
+        ref={carouselRef}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+        onMouseMove={(e) => {
+          handleMouseMove(e);
+          handleMouseDrag(e);
+        }}
+        onMouseUp={handleMouseUp}
+      >
+        <div
+          className="carousel"
+          style={{
+            transform: `rotateY(${rotationAngle}deg)`,
+            transition: 'transform 0.1s linear', // Transition lisse et rapide
+          }}
+        >
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className="carousel-item"
+              style={{
+                transform: `rotateY(${index * angleIncrement}deg) translateZ(${translateZ}px)`,
+              }}
+            >
+              <img src={image} alt={`carousel-${index}`} draggable="false" />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

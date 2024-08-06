@@ -1,0 +1,100 @@
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #EFEBD5; /* Fond pour la section */
+    overflow: hidden; /* Cache tout débordement d'image */
+    height: 60vh; /* Hauteur de la section ajustable */
+    box-sizing: border-box;
+  }
+  
+  .hero-icon {
+    width: auto;
+    height: 90%; /* Assure que l'image principale remplit verticalement */
+    max-height: 100%; /* Empêche l'image de déborder de la section */
+  }
+  
+  .laurier-icon {
+    height: 70%; /* Ajuste la hauteur par rapport à l'image principale */
+    width: auto;
+    flex-shrink: 0; /* Empêche le redimensionnement horizontal */
+  }
+  
+  .left {
+    margin-right: 20px; /* Espace entre l'image gauche et l'image principale */
+    transform: scaleX(-1); /* Inverse l'image horizontalement */
+  }
+  
+  .right {
+    margin-left: 20px; /* Espace entre l'image droite et l'image principale */
+  }
+
+  /* Media Query pour les écrans de 1440 pixels de largeur */
+  @media (max-width: 1440px) {
+    .hero-section {
+      height: 55vh; /* Ajuste la hauteur pour mieux s'adapter */
+      padding: 15px; /* Réduit le padding pour un meilleur ajustement */
+    }
+  
+    .hero-icon {
+      height: 50%; /* Ajuste la taille de l'image principale pour s'adapter à l'écran */
+    }
+  
+    .laurier-icon {
+      height: 50%; /* Ajuste la taille des lauriers pour équilibrer la proportion */
+      margin: 0 15px; /* Ajuste les marges pour éviter le débordement */
+    }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .hero-section {
+      height: 50vh; /* Ajuste la hauteur pour les tablettes */
+      padding: 10px;
+    }
+  
+    .hero-icon {
+      height: 45%; /* Ajuste la taille de l'image principale */
+    }
+  
+    .laurier-icon {
+      height: 35%; /* Ajuste la taille des lauriers */
+      margin: 0 10px; /* Réduit les marges pour s'adapter à la largeur */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-section {
+      height: 45vh; /* Ajuste la hauteur pour les écrans plus petits */
+      padding: 10px;
+    }
+  
+    .hero-icon {
+      height: 35%; /* Réduit la taille de l'image principale */
+    }
+  
+    .laurier-icon {
+      height: 30%; /* Réduit davantage la taille des lauriers */
+      margin: 0 8px; /* Réduit encore les marges */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-section {
+      height: auto; /* Permet à la section de s'ajuster en hauteur */
+      padding: 0;
+    }
+  
+    .hero-icon, .laurier-icon {
+      height: auto; /* Assure que les images s'adaptent naturellement */
+      width: 25%; /* Réduit la largeur pour mieux s'adapter */
+      max-width: 100%;
+      margin: 5px 0; /* Espacement vertical entre les images */
+    }
+  
+    .left, .right {
+      margin: 0; /* Supprime les marges latérales pour le mode colonne */
+    }
+  }
+  

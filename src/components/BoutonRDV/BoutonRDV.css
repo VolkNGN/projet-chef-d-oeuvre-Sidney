@@ -1,0 +1,75 @@
+.button-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    height: 30vh; /* Prend toute la hauteur de la fenêtre */
+    background-color: #EFEBD5; /* Assurez-vous que le fond de la page est appliqué ici */
+  }
+  
+  .bouton-rdv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border: 2px solid #0a0f0d; /* Couleur de bordure noire */
+    border-radius: 32px;
+    background-color: transparent; /* Fond transparent */
+    color: #0a0f0d; /* Couleur du texte noir */
+    font-family: 'Abhaya Libre SemiBold', serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transition pour les effets de survol */
+    text-align: center;
+    width: fit-content; /* Ajuste la largeur au contenu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce pour le relief */
+  }
+  
+  .bouton-rdv:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Légère couleur de fond au survol */
+  }
+  
+  .bouton-rdv:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(10, 15, 13, 0.3); /* Anneau de focus */
+  }
+  
+  .prendre-rendez-vous {
+    margin-right: 10px; /* Espace entre le texte et l'icône */
+  }
+  
+  .group-icon {
+    width: 20px; /* Taille de l'icône pour correspondre au design */
+    height: 20px; /* Assure une proportion carrée */
+    flex-shrink: 0; /* Empêche l'icône de rétrécir */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .bouton-rdv {
+      padding: 8px 16px; /* Réduit le padding pour les mobiles */
+      font-size: 16px; /* Réduit la taille de la police */
+    }
+  
+    .group-icon {
+      width: 18px; /* Réduit la taille de l'icône pour les mobiles */
+      height: 18px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .bouton-rdv {
+      padding: 6px 12px; /* Ajuste encore plus pour les petits écrans */
+      font-size: 14px; /* Taille de police adaptée */
+    }
+  
+    .prendre-rendez-vous {
+      margin-right: 8px; /* Réduit l'espace sur les petits écrans */
+    }
+  
+    .group-icon {
+      width: 16px; /* Ajustement supplémentaire pour les petits écrans */
+      height: 16px;
+    }
+  }
+  

@@ -1,15 +1,32 @@
+.carousel-title {
+  font-family: 'Abhaya Libre SemiBold', serif; /* Assurez-vous que la police est bien importée */
+  font-size: 36px;
+  text-align: center; /* Centre le texte horizontalement */
+  margin: 20px; /* Ajoute de l'espace entre le texte et le carrousel */
+  animation: fadeInTitle 2s ease-in-out forwards; /* Animation sur 2 secondes */
+}
+
+@keyframes fadeInTitle {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .carousel-container {
   position: relative;
   width: 100%;
   max-width: 1440px; /* Limite la largeur maximale pour de grands écrans */
-  height: 60vh; /* Utilise une hauteur relative à la hauteur de la fenêtre */
+  height: 70vh; /* Utilise une hauteur relative à la hauteur de la fenêtre */
   perspective: 1200px; /* Perspective fixée pour la vue 3D */
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding: 20px; /* Ajoute un peu d'espace autour pour mieux gérer les bords */
+  padding: 40px; /* Ajoute un peu d'espace autour pour mieux gérer les bords */
   box-sizing: border-box;
 }
 
@@ -50,6 +67,11 @@
 
 /* Media query for tablets (768px - 1024px) */
 @media (max-width: 1024px) {
+
+  .carousel-title {
+    font-size: 28px; /* Réduit la taille de la police pour les tablettes */
+  }
+
   .carousel-container {
     height: 50vh; /* Ajuste la hauteur pour les tablettes */
     padding: 20px;
@@ -57,7 +79,7 @@
 
   .carousel-item {
     width: auto; /* Augmente légèrement la taille des éléments */
-    height: 22%;
+    height: 50%;
     max-width: 180px;
     max-height: 180px;
     transform: rotateY(0deg) translateZ(500px); /* Adjust Z depth for tablets */
@@ -66,6 +88,11 @@
 
 /* Media query for mobile phones (480px - 768px) */
 @media (max-width: 768px) {
+
+  .carousel-title {
+    font-size: 24px; /* Réduit la taille de la police pour les mobiles */
+  }
+
   .carousel-container {
     height: 45vh; /* Réduit la hauteur pour les écrans plus petits */
     padding: 15px;
@@ -73,7 +100,7 @@
 
   .carousel-item {
     width: auto; /* Ajuste la taille pour une meilleure visibilité */
-    height: 28%;
+    height: 40%;
     max-width: 160px;
     max-height: 160px;
     transform: rotateY(0deg) translateZ(300px); /* Further adjust Z depth for mobiles */
@@ -82,6 +109,12 @@
 
 /* Media query for small mobile phones (480px and below) */
 @media (max-width: 480px) {
+
+  .carousel-title {
+    font-size: 18px; /* Réduit encore la taille de la police pour les petits écrans */
+    margin-bottom: 10px; /* Réduit l'espace sous le texte */
+  }
+
   .carousel-container {
     height: 40vh; /* Ajuste la hauteur pour les très petits écrans */
     padding: 10px;
