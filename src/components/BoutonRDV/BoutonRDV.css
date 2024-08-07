@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
-    height: 30vh; /* Prend toute la hauteur de la fenêtre */
+    height: 20vh; /* Prend toute la hauteur de la fenêtre */
     background-color: #EFEBD5; /* Assurez-vous que le fond de la page est appliqué ici */
   }
   

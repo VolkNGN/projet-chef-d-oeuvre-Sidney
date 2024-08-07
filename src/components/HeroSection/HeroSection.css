@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
+    margin: 20px;
     background-color: #EFEBD5; /* Fond pour la section */
     overflow: hidden; /* Cache tout débordement d'image */
     height: 60vh; /* Hauteur de la section ajustable */

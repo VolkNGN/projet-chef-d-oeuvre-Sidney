@@ -88,11 +88,11 @@ const Carousel = () => {
       if (width > 1024) {
         setTranslateZ(600); // Valeur pour les grands écrans
       } else if (width > 768) {
-        setTranslateZ(450); // Valeur pour les tablettes
+        setTranslateZ(400); // Valeur pour les tablettes
       } else if (width > 480) {
-        setTranslateZ(350); // Valeur pour les téléphones portables
+        setTranslateZ(300); // Valeur pour les téléphones portables
       } else {
-        setTranslateZ(240); // Valeur pour les petits téléphones
+        setTranslateZ(250); // Valeur pour les petits téléphones
       }
     };
 

@@ -2,6 +2,7 @@
   font-family: 'Abhaya Libre SemiBold', serif; /* Assurez-vous que la police est bien importée */
   font-size: 36px;
   text-align: center; /* Centre le texte horizontalement */
+  padding: 20px;
   margin: 20px; /* Ajoute de l'espace entre le texte et le carrousel */
   animation: fadeInTitle 2s ease-in-out forwards; /* Animation sur 2 secondes */
 }
@@ -39,6 +40,8 @@
   align-items: center;
   transform-style: preserve-3d;
   transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  margin:20px;
+  padding:20px;
 }
 
 .carousel-item {
