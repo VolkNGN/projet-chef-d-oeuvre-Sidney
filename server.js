@@ -1,4 +1,3 @@
-# HTTP
 <VirtualHost *:80>
     ServerName atelierperrier.wouafwouaf.ovh
     ServerAlias www.atelierperrier.wouafwouaf.ovh
@@ -16,11 +15,11 @@
 
     ProxyPreserveHost On
     ProxyRequests Off
-    ProxyPass / http://localhost:5424/  
+    ProxyPass / http://localhost:5424/
     ProxyPassReverse / http://localhost:5424/
 </VirtualHost>
 
-# HTTPS
+HTTPS
 <VirtualHost *:443>
     ServerName AtelierPerrier.wouafwouaf.ovh
     ServerAlias www.AtelierPerrier.wouafwouaf.ovh
@@ -30,7 +29,7 @@
 
     ProxyPreserveHost On
     ProxyRequests Off
-    ProxyPass / http://localhost:5424/  
+    ProxyPass / http://localhost:5424/
     ProxyPassReverse / http://localhost:5424/
 
     SSLEngine on
