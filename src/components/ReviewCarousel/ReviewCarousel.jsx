@@ -99,7 +99,7 @@ const TestimonialsCarousel = () => {
 
   return (
     <div className="customers-testimonials-container">
-      <h3 className="trust-title">ILS M'ONT FAIT CONFIANCE !</h3>
+      <h3 className="trust-title">Ils m'ont fait confiance !</h3>
       <div className="customers-testimonials">
         <Slider {...settings}>
           {reviews.map((review, index) => (

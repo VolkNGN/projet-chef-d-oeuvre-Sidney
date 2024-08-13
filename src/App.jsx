@@ -5,6 +5,8 @@ import BoutonRDV from './components/BoutonRDV/BoutonRDV';
 import HeroSection from './components/HeroSection/HeroSection';
 import SliderComparison from './components/ComparisonSlider/ComparisonSlider';
 import ReviewCarousel from './components/ReviewCarousel/ReviewCarousel';
+import AnimatedH3 from './components/AnimatedH3/AnimatedH3text';
+import Footer from './components/Footer/Footer';
 import './App.css';
 
 const App = () => {
@@ -16,6 +18,8 @@ const App = () => {
       <HeroSection />
       <SliderComparison />
       <ReviewCarousel />
+      <AnimatedH3 />
+      <Footer />
     </div>
   );
 };

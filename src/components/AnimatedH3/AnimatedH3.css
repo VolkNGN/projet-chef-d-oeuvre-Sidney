@@ -1,0 +1,67 @@
+.h3-container {
+    padding: 40px 40px;
+    margin: 30px auto;
+    border-radius: 10px;
+    background-color: #EFEBD5; /* Fond crème élégant */
+    max-width: 80%;
+    text-align: center;
+    background-size: cover;
+}
+
+.animated-h3 {
+    font-family: 'Abhaya Libre SemiBold', serif;
+    font-size: 2vw; /* Taille de police responsive */
+    line-height: 1.5;
+    margin: 0;
+    color: #000;
+    white-space: normal;
+    overflow: hidden;
+    display: inline-block;
+    word-wrap: break-word;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 3s ease-in-out forwards; /* Fade-in animation */
+    font-style: italic; /* Makes the text italic */
+}
+
+/* Fade-in keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Adjustments */
+
+/* Pour les tablettes */
+@media (max-width: 1024px) {
+    .animated-h3 {
+        font-size: 3vw;
+    }
+
+    .h3-container {
+        padding: 30px 20px;
+    }
+}
+
+/* Pour les grands smartphones */
+@media (max-width: 768px) {
+    .animated-h3 {
+        font-size: 4vw;
+    }
+
+    .h3-container {
+        padding: 20px 15px;
+        max-width: 90%;
+    }
+}
+
+/* Pour les petits smartphones */
+@media (max-width: 480px) {
+    .animated-h3 {
+        font-size: 5vw;
+    }
+
+    .h3-container {
+        padding: 15px 10px;
+        max-width: 100%;
+    }
+}
