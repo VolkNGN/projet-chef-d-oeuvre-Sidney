@@ -1,19 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400&display=swap');
 
-body {
-  margin: 0;
-  line-height: normal;
-}
-
 .header {
   width: 100%;
   background-color: #80aba4;
   justify-content: center;
   padding: 20px;
-  box-sizing: border-box;
   font-family: 'Abhaya Libre SemiBold', serif;
   font-size: 24px;
   color: #000;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -31,7 +26,7 @@ body {
 .logo-text {
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 30px;
   padding: 10px 20px;
 }
 
@@ -93,9 +88,6 @@ body {
   height: 16px;
 }
 
-.nav-label {
-  font-size: 1.5rem;
-}
 
 .hero-image {
   width: auto;
@@ -227,3 +219,32 @@ body {
           height: auto;
         }
       }
+.header {
+  padding: 10px 5%;
+}
+
+.logo-text {
+  padding: 5px 10px;
+}
+
+.navigation {
+  gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 2%;
+  }
+  .logo-text {
+    padding: 5px 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 5px 2%;
+  }
+  .navigation {
+    gap: 10px;
+  }
+}

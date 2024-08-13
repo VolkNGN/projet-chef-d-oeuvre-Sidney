@@ -3,7 +3,9 @@
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
     height: 20vh; /* Prend toute la hauteur de la fenêtre */
-    background-color: #EFEBD5; /* Assurez-vous que le fond de la page est appliqué ici */
+    padding: 20px;
+    background-color: #80aba4; /* Assurez-vous que le fond de la page est appliqué ici */
+    box-sizing: border-box;
   }
   
   .bouton-rdv {
@@ -16,7 +18,7 @@
     background-color: transparent; /* Fond transparent */
     color: #0a0f0d; /* Couleur du texte noir */
     font-family: 'Abhaya Libre SemiBold', serif;
-    font-size: 18px;
+    font-size: 24px;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease; /* Transition pour les effets de survol */
@@ -39,8 +41,8 @@
   }
   
   .group-icon {
-    width: 20px; /* Taille de l'icône pour correspondre au design */
-    height: 20px; /* Assure une proportion carrée */
+    width: 24px; /* Taille de l'icône pour correspondre au design */
+    height: 24px; /* Assure une proportion carrée */
     flex-shrink: 0; /* Empêche l'icône de rétrécir */
   }
   
@@ -73,3 +75,25 @@
     }
   }
   
+.button-container {
+  padding: 10px 5%;
+}
+
+.bouton-rdv {
+  padding: 8px 16px;
+}
+
+@media (max-width: 768px) {
+  .button-container {
+    padding: 8px 3%;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+    padding: 5px 2%;
+  }
+  .bouton-rdv {
+    padding: 6px 12px;
+  }
+}

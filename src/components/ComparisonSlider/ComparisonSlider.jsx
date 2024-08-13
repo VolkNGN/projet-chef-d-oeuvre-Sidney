@@ -1,7 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './ComparisonSlider.css';
 
-// Importation des images avant et après
 import Before1 from '../../Assets/photos/before1.jpg';
 import After1 from '../../Assets/photos/after1.jpg';
 import Before2 from '../../Assets/photos/before2.jpg';
@@ -44,33 +43,60 @@ const ImageComparison = ({ beforeImage, afterImage, alt }) => {
         style={{
           clipPath: `inset(0% ${100 - dividerPosition}% 0% 0%)`,
           backgroundImage: `url(${beforeImage})`,
-          backgroundSize: 'cover', // Assure que l'image couvre le conteneur
+          backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: '100%', // S'assure que l'image s'adapte à la hauteur du conteneur
+          height: '100%',
         }}
       ></div>
       <div
         className="image-comparison-after"
         style={{
           backgroundImage: `url(${afterImage})`,
-          backgroundSize: 'cover', // Assure que l'image couvre le conteneur
+          backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: '100%', // S'assure que l'image s'adapte à la hauteur du conteneur
+          height: '100%',
         }}
       ></div>
-      <div
-        className="divider"
-        style={{ left: `${dividerPosition}%` }}
-      ></div>
+      <div className="divider" style={{ left: `${dividerPosition}%` }}></div>
     </div>
   );
 };
 
 const ComparisonSlider = () => {
+  const [isAnimated, setIsAnimated] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsAnimated(true);
+            observer.unobserve(entry.target); // Stop observing after animation starts
+          }
+        });
+      },
+      { threshold: 0.1 } // Trigger when 10% of the element is visible
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div className="slider-comparison">
       <h2 className="title">Héritage et modernité, réunis dans chaque création.</h2>
-      <div className="sliders-container">
+      <div
+        ref={containerRef}
+        className={`sliders-container ${isAnimated ? 'animate' : ''}`}
+      >
         <ImageComparison beforeImage={Before1} afterImage={After1} alt="Image 1 Avant Après" />
         <ImageComparison beforeImage={Before2} afterImage={After2} alt="Image 2 Avant Après" />
         <ImageComparison beforeImage={Before3} afterImage={After3} alt="Image 3 Avant Après" />

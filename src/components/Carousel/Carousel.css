@@ -4,19 +4,26 @@
   text-align: center; /* Centre le texte horizontalement */
   padding: 20px;
   margin: 20px; /* Ajoute de l'espace entre le texte et le carrousel */
-  animation: fadeInTitle 2s ease-in-out forwards; /* Animation sur 2 secondes */
+  box-sizing: border-box;
+  opacity: 0; /* Début de l'animation avec le texte invisible */
+  animation: slideInLeft 4s ease-in-out forwards; /* Animation sur 4 secondes */
 }
 
-@keyframes fadeInTitle {
-  from {
-    opacity: 0;
+/* Animation de gauche à droite */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%); /* Débute en dehors de l'écran à gauche */
+    opacity: 0; /* Complètement invisible */
   }
-  to {
-    opacity: 1;
+  100% {
+    transform: translateX(0); /* Termine à la position normale */
+    opacity: 1; /* Complètement visible */
   }
 }
+
 
 .carousel-container {
+  box-sizing: border-box;
   position: relative;
   width: 100%;
   max-width: 1440px; /* Limite la largeur maximale pour de grands écrans */
@@ -129,5 +136,26 @@
     max-width: 140px;
     max-height: 140px;
     transform: rotateY(0deg) translateZ(200px); /* More adjustment for Z depth on small mobiles */
+  }
+}
+
+.carousel-container {
+  padding: 20px 5%;
+  margin: 0 auto;
+}
+
+.carousel-title {
+  margin: 10px auto;
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    padding: 15px 2%;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    padding: 10px 1%;
   }
 }

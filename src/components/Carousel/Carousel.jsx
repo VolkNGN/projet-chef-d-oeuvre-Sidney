@@ -191,12 +191,12 @@ const Carousel = () => {
 
   return (
     <div>
-      <h2
+      <h1
         className={`carousel-title ${titleVisible ? 'visible' : ''}`}
         ref={titleRef}
       >
         L'art de la tapisserie d'ameublement, où chaque fil raconte une histoire.
-      </h2>
+      </h1>
       <div
         className="carousel-container"
         ref={carouselRef}
