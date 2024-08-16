@@ -1,39 +1,17 @@
-<VirtualHost *:80>
-    ServerName atelierperrier.wouafwouaf.ovh
-    ServerAlias www.atelierperrier.wouafwouaf.ovh
+const express = require('express');
+const path = require('path');
+const app = express();
 
-    # DocumentRoot /home/projet-chef-d-oeuvre-Sidney
+const PORT = process.env.PORT || 5424;
 
-    # <Directory "/home/projet-chef-d-oeuvre-Sidney">
-    #     Options Indexes FollowSymLinks
-    #     AllowOverride All
-    #     Require all granted
-    # </Directory>
+// Servir les fichiers statiques du dossier 'build'
+app.use(express.static(path.join(__dirname, 'build')));
 
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
+// Pour toutes les autres requêtes, retourner le fichier 'index.html' du dossie>
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
-    ProxyPreserveHost On
-    ProxyRequests Off
-    ProxyPass / http://localhost:5424/
-    ProxyPassReverse / http://localhost:5424/
-</VirtualHost>
-
-HTTPS
-<VirtualHost *:443>
-    ServerName AtelierPerrier.wouafwouaf.ovh
-    ServerAlias www.AtelierPerrier.wouafwouaf.ovh
-
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
-
-    ProxyPreserveHost On
-    ProxyRequests Off
-    ProxyPass / http://localhost:5424/
-    ProxyPassReverse / http://localhost:5424/
-
-    SSLEngine on
-    SSLCertificateFile /home/ssl/atelierperrier.wouafwouaf.ovh/certificate.crt
-    SSLCertificateKeyFile /home/ssl/atelierperrier.wouafwouaf.ovh/key.key
-    SSLCertificateChainFile /home/ssl/atelierperrier.wouafwouaf.ovh/cabundle.crt
-</VirtualHost>
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
