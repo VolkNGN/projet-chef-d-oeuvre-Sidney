@@ -26,7 +26,7 @@
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  max-width: 1440px; /* Limite la largeur maximale pour de grands écrans */
+  max-width: 100%; /* Limite la largeur maximale pour de grands écrans */
   height: 70vh; /* Utilise une hauteur relative à la hauteur de la fenêtre */
   perspective: 1200px; /* Perspective fixée pour la vue 3D */
   margin: 0 auto;
@@ -133,9 +133,9 @@
   .carousel-item {
     width: 35%; /* Agrandit les images pour les rendre plus visibles sur mobile */
     height: 35%;
-    max-width: 140px;
-    max-height: 140px;
-    transform: rotateY(0deg) translateZ(200px); /* More adjustment for Z depth on small mobiles */
+    max-width: 150px;
+    max-height: 150px;
+    transform: rotateY(0deg) translateZ(150px); /* More adjustment for Z depth on small mobiles */
   }
 }
 

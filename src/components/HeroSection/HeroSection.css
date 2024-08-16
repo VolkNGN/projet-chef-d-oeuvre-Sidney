@@ -81,7 +81,7 @@
 
   .hero-icon, .laurier-icon {
     width: 100%; /* Chaque image prend la largeur disponible */
-    max-width: none; /* Désactivation de la largeur maximale pour la grille */
+    max-width: 100%; /* Désactivation de la largeur maximale pour la grille */
     height: auto;
     margin: 0;
   }

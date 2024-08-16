@@ -67,7 +67,7 @@
   top: 0;
   bottom: 0;
   width: 20px; /* Largeur de la barre */
-  background-color: rgba(0, 0, 0, 0.7); /* Couleur de la barre */
+  background-color: rgba(0, 0, 0, 1); /* Couleur de la barre */
   z-index: 3;
   cursor: ew-resize;
   display: flex;
@@ -76,19 +76,16 @@
   transition: background-color 0.3s ease;
 }
 
-.divider:hover {
-  background-color: rgba(0, 0, 0, 0.7); /* Couleur de la barre lors du survol */
-}
 
 .divider::before {
   content: '⇔';
   color: white;
   font-size: 20px;
   pointer-events: none;
-  background-color: rgba(0, 0, 0, 0.8); /* Couleur du cercle identique à la barre */
+  background-color: rgba(0, 0, 0, 1); /* Couleur du cercle identique à la barre */
   padding: 10px;
   border-radius: 50%; /* Crée un cercle autour du symbole */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Ajoute une légère ombre pour plus de visibilité */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Ajoute une légère ombre pour plus de visibilité */
   transition: background-color 0.3s ease; /* Transition fluide sur le changement de couleur */
 }
 
@@ -143,7 +140,7 @@
   }
 
   .sliders-container {
-    grid-template-columns: repeat(2, 1fr); /* 2x2 grid for small mobile devices */
+    grid-template-columns: repeat(1, 1fr); /* 2x2 grid for small mobile devices */
   }
 
   .image-comparison-container {
@@ -159,7 +156,7 @@
   }
 
   .sliders-container {
-    grid-template-columns: repeat(2, 1fr); /* 2x2 grid for very small mobiles */
+    grid-template-columns: repeat(1, 1fr); /* 2x2 grid for very small mobiles */
     padding: 10px;
     gap: 20px;
   }
