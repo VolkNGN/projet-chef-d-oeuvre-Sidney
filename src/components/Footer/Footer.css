@@ -92,9 +92,12 @@
   width: 100%;
   max-width: 1000px;
   height: auto;
-  margin: 40px auto;
+  margin: 40px auto; /* Ceci devrait centrer l'élément */
   padding: 40px;
   text-align: center;
+  display: flex; /* Ajout de Flexbox */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
 }
 
 /* Responsive Adjustments */
@@ -112,6 +115,7 @@
 
   .fioriture {
     max-width: 80%;
+    justify-content: center; /* Centrage horizontal */
   }
 
   .artisan-logo {
@@ -123,6 +127,7 @@
 @media (max-width: 768px) {
   .fioriture {
     max-width: 70%;
+    justify-content: center; /* Centrage horizontal */
   }
 
   .footer-section {
@@ -146,6 +151,7 @@
 @media (max-width: 480px) {
   .fioriture {
     max-width: 60%;
+    justify-content: center; /* Centrage horizontal */
   }
 
   .footer-section {
@@ -169,6 +175,7 @@
 @media (max-width: 375px) {
   .fioriture {
     max-width: 50%;
+    justify-content: center; /* Centrage horizontal */
   }
 
   .footer-section {

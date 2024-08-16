@@ -1,18 +1,23 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Footer.css';
-import fioriture from '../../Assets/Icons/fioriture.png';
+
+// Import images
 import homeIcon from '../../Assets/Icons/home.svg';
 import askIcon from '../../Assets/Icons/ask.svg';
 import caseIcon from '../../Assets/Icons/case.svg';
 import universeIcon from '../../Assets/Icons/universe.svg';
 import mailIcon from '../../Assets/Icons/mail.svg';
 import ArtisanLogo from '../../Assets/photos/ArtisanLogo.png';
+import fioritureImage from '../../Assets/Icons/fioriture.png'; // Importation directe de l'image fioriture
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <>
-      <div className="fioriture-container">
-        <img src={fioriture} alt="Fioriture" className="fioriture" />
+      <div className="fioriture">
+        <img src={fioritureImage} alt="Fioriture" className="fioriture" />
       </div>
       <div className="footer">
         <div className="footer-section atelier-info">
@@ -22,23 +27,23 @@ const Footer = () => {
         <div className="footer-section">
           <div className="section-title">accès rapide</div>
           <div className="quick-links">
-            <div className="nav-item">
+            <div className="nav-item" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
               <img src={homeIcon} alt="Home" className="nav-icon" />
               <span>Accueil</span>
             </div>
-            <div className="nav-item">
+            <div className="nav-item" onClick={() => navigate('/about')} style={{ cursor: 'pointer' }}>
               <img src={askIcon} alt="Qui suis-je" className="nav-icon" />
               <span>Qui suis-je</span>
             </div>
-            <div className="nav-item">
+            <div className="nav-item" onClick={() => navigate('/job')} style={{ cursor: 'pointer' }}>
               <img src={caseIcon} alt="Mon métier" className="nav-icon" />
               <span>Mon métier</span>
             </div>
-            <div className="nav-item">
+            <div className="nav-item" onClick={() => navigate('/universe')} style={{ cursor: 'pointer' }}>
               <img src={universeIcon} alt="Mon Univers" className="nav-icon" />
               <span>Mon Univers</span>
             </div>
-            <div className="nav-item">
+            <div className="nav-item" onClick={() => navigate('/contacts')} style={{ cursor: 'pointer' }}>
               <img src={mailIcon} alt="Me contacter" className="nav-icon" />
               <span>Me contacter</span>
             </div>
