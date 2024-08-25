@@ -6,7 +6,7 @@ const Universe = () => {
   return (
     <div>
       <Header />
-      <h1>Mon Univers</h1>
+      <h1>Bienvenue dans mon univers !</h1>
       {/* Autres composants spécifiques à Universe */}
       <Footer />
     </div>

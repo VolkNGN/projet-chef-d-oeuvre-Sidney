@@ -1,0 +1,198 @@
+.about-section-container {
+    padding: 20px;
+    max-width: 1400px; /* Augmentez la largeur maximale pour les grands écrans */
+    margin: 0 auto;
+}
+
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 250px 0;
+    flex-wrap: wrap; /* Permet au contenu de s'ajuster pour les petits écrans */
+}
+
+.about-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-section.centered {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ajout de l'ombre */
+}
+
+.about-image.large {
+    max-width: 700px;
+    height: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ajout de l'ombre */
+}
+
+.about-text {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 24px;
+    margin: 0 20px;
+    flex: 1;
+    text-align: left;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    visibility: visible; /* Assurez-vous que le paragraphe est visible */
+    opacity: 1; /* Opacité complète */
+    display: block; /* Assurez-vous que le paragraphe est affiché */
+}
+
+.about-text.centered-text {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+.about-fioriture {
+    width: 100%;
+    max-width: 844px;
+    height: 63px;
+    margin-top: 20px;
+}
+
+/* Responsive Styles */
+
+/* Grands écrans (PC large) */
+@media (min-width: 1400px) {
+    .about-section-container {
+        max-width: 1600px; /* Augmentez encore la largeur maximale */
+    }
+
+    .about-image {
+        max-width: 500px;
+        height: 600px;
+    }
+
+    .about-image.large {
+        max-width: 900px;
+        height: 600px;
+    }
+
+    .about-text {
+        font-size: 20px;
+        padding: 25px;
+    }
+
+    .about-text.centered-text {
+        max-width: 1000px;
+    }
+
+    .about-fioriture {
+        max-width: 1000px;
+    }
+}
+
+/* Tablettes */
+@media (max-width: 1024px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        max-width: 50%;
+        height: auto;
+    }
+
+    .about-image.large {
+        max-width: 90%;
+        height: auto;
+    }
+
+    .about-text {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .about-text.centered-text {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .about-image.large {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .about-text {
+        margin: 20px 0;
+        text-align: center;
+        display: block; /* Assurez-vous que le paragraphe est affiché */
+        visibility: visible; /* Assurez-vous que le paragraphe est visible */
+        opacity: 1; /* Opacité complète */
+    }
+
+    .about-text.centered-text {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .about-fioriture {
+        max-width: 90%;
+        margin-top: 15px;
+    }
+}
+
+/* Mobiles petits */
+@media (max-width: 480px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .about-image.large {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .about-text {
+        margin: 15px 0;
+        text-align: center;
+        display: block; /* Assurez-vous que le paragraphe est affiché */
+        visibility: visible; /* Assurez-vous que le paragraphe est visible */
+        opacity: 1; /* Opacité complète */
+    }
+
+    .about-text.centered-text {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    .about-fioriture {
+        max-width: 80%;
+        margin-top: 10px;
+    }
+}
