@@ -1,0 +1,66 @@
+/* src/components/JobDescriptions.css */
+.job-descriptions {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .text-section {
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .paragraph {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .parallax-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh; /* Par défaut pour PC */
+  }
+  
+  /* Responsive styles */
+  
+  /* Pour les mobiles (jusqu'à 600px de largeur) */
+  @media (max-width: 600px) {
+    .parallax-section {
+      height: 30vh;
+    }
+  
+    .paragraph {
+      font-size: 16px;
+    }
+  }
+  
+  /* Pour les tablettes (entre 601px et 1024px de largeur) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .parallax-section {
+      height: 40vh;
+    }
+  
+    .paragraph {
+      font-size: 17px;
+    }
+  }
+  
+  /* Pour les grands écrans (plus de 1024px de largeur) */
+  @media (min-width: 1025px) {
+    .parallax-section {
+      height: 60vh;
+    }
+  }
+  
+  /* Pour les très grands écrans (plus de 1440px de largeur) */
+  @media (min-width: 1440px) {
+    .parallax-section {
+      height: 70vh;
+    }
+  
+    .paragraph {
+      font-size: 20px;
+    }
+  }
+  
