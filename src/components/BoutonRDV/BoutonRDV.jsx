@@ -1,12 +1,14 @@
 import React, { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import de useNavigate
 import './BoutonRDV.css';
 import mailIcon from '../../Assets/Icons/mail.svg';
 
 const BoutonRDV = () => {
+  const navigate = useNavigate(); // Initialisation de useNavigate
+
   const onBoutonRDVContainerClick = useCallback(() => {
-    // Logique pour le clic du bouton
-    console.log("Rendez-vous pris !");
-  }, []);
+    navigate('/contacts'); // Redirection vers la page de contact
+  }, [navigate]);
 
   return (
     <div className="button-container">
