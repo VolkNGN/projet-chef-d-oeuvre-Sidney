@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
+import FlipCardGrid from '../components/FlipCardGrid/FlipCardGrid';
 
 const Universe = () => {
   return (
@@ -8,6 +9,7 @@ const Universe = () => {
       <Header />
       <h1>Bienvenue dans mon univers !</h1>
       {/* Autres composants spécifiques à Universe */}
+      < FlipCardGrid />
       <Footer />
     </div>
   );

@@ -1,0 +1,139 @@
+.flip-card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: center; /* Centre la grille */
+  }
+  
+  .flip-card {
+    background-color: transparent;
+    width: 400px;
+    height: 500px;
+    perspective: 1000px;
+    padding: 10px;
+    cursor: pointer;
+    outline: none; /* Retire l'effet de focus bleu sur les cartes */
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto; /* Centre chaque carte */
+  }
+  
+  .flip-card:focus {
+    outline: none; /* Assure que le focus est bien retiré quand la carte est cliquée */
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    user-select: none; /* Empêche la sélection de texte dans la carte */
+  }
+  
+  .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 15px; /* Ajout du border-radius */
+    overflow: hidden; /* Pour s'assurer que le contenu respecte le border-radius */
+  }
+  
+  .flip-card-front {
+    background-image: url('../../Assets/photos/gold-ornament.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  
+  .card-back-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+  }
+  
+  .flip-card-back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px; /* Assurez-vous que les images respectent également le border-radius */
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 1440px) {
+    .flip-card-grid {
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: center; /* Assure que la grille est centrée */
+    }
+  
+    .flip-card {
+      width: 300px;
+      height: 400px;
+      margin-left: auto;
+      margin-right: auto; /* Centre chaque carte */
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .flip-card-grid {
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: center; /* Assure que la grille est centrée */
+    }
+  
+    .flip-card {
+      width: 250px;
+      height: 350px;
+      margin-left: auto;
+      margin-right: auto; /* Centre chaque carte */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .flip-card-grid {
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center; /* Assure que la grille est centrée */
+    }
+  
+    .flip-card {
+      width: 400px;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto; /* Centre chaque carte */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .flip-card-grid {
+      grid-template-columns: repeat(1, 1fr);
+      justify-content: center; /* Assure que la grille est centrée */
+    }
+  
+    .flip-card {
+      width: 100%;
+      height: 500px;
+      margin-left: auto;
+      margin-right: auto; /* Centre chaque carte */
+    }
+  }
+  
