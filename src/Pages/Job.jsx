@@ -4,6 +4,7 @@ import Footer from '../components/Footer/Footer';
 import HeroSection from '../components/HeroSection/HeroSection';
 import JobDescriptions from '../components/JobDescriptions/JobDescriptions';
 import BoutonCreations from '../components/BoutonCreations/BoutonCreations';
+import './pages.css';
 
 const Job = () => {
   return (

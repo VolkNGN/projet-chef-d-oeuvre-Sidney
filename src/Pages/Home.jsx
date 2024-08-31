@@ -7,6 +7,7 @@ import SliderComparison from '../components/ComparisonSlider/ComparisonSlider';
 import ReviewCarousel from '../components/ReviewCarousel/ReviewCarousel';
 import AnimatedH3 from '../components/AnimatedH3/AnimatedH3text';
 import Footer from '../components/Footer/Footer';
+import './pages.css';
 
 const Home = () => {
   return (

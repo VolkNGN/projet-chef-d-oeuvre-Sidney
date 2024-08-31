@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import './formulaire.css';
 
 const Formulaire = () => {
@@ -52,74 +53,98 @@ const Formulaire = () => {
   };
 
   return (
-    <div className="form-container">
-      <h2>Contactez-nous</h2>
-      <form onSubmit={handleSubmit} className="form">
-        <div className="form-group">
-          <label htmlFor="firstName">Prénom*</label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            required
-            className="input"
+    <div className="form-map-container">
+      <div className="form-container">
+        <h2>Contactez-moi</h2>
+        <form onSubmit={handleSubmit} className="form">
+          <div className="form-group">
+            <label htmlFor="firstName">Prénom*</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              required
+              className="input"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="lastName">Nom*</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+              className="input"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="phone">Téléphone*</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className="input"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email*</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="input"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="message">Message*</label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              className="input textarea"
+            />
+          </div>
+          <ReCAPTCHA
+            sitekey="6LfO6zIqAAAAANEjledOosh6iH85drMUkVfUXraC"
+            onChange={handleRecaptchaChange}
           />
+          <button type="submit" className="button">Envoyer</button>
+        </form>
+      </div>
+      <div className="map-container">
+        <iframe
+          title="Google Maps"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888.594721462992!2d4.415929715495396!3d44.014326379109155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b47b1c22d5a09b%3A0xc85b2069144e8122!2s32%20Avenue%20G%C3%A9n%C3%A9ral%20Vincent%2C%2030700%20Uz%C3%A8s!5e0!3m2!1sen!2sfr!4v1633685684080!5m2!1sen!2sfr"
+          width="100%"
+          height="450"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+        ></iframe>
+        <div className="social-media">
+          <h2>Retrouvez également mon travail sur :</h2>
+          <div className="social-icons">
+            <a href="https://www.facebook.com/votreprofil" target="_blank" rel="noopener noreferrer" className="social-link">
+              <FaFacebook size={40} />
+            </a>
+            <a href="https://www.instagram.com/votreprofil" target="_blank" rel="noopener noreferrer" className="social-link">
+              <FaInstagram size={40} />
+            </a>
+          </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="lastName">Nom*</label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-            className="input"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="phone">Téléphone*</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            className="input"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email*</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="input"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="message">Message*</label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            className="input textarea"
-          />
-        </div>
-        <ReCAPTCHA
-          sitekey="6LfO6zIqAAAAANEjledOosh6iH85drMUkVfUXraC"
-          onChange={handleRecaptchaChange}
-        />
-        <button type="submit" className="button">Envoyer</button>
-      </form>
+      </div>
     </div>
   );
 };

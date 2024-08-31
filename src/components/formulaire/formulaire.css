@@ -1,45 +1,61 @@
 /* Styles de base, appliqués par défaut */
+.form-map-container {
+    display: flex;
+    flex-wrap: wrap; /* Pour permettre une bonne réactivité */
+    margin: 20px;
+    gap: 0; /* Supprime l'espace entre les éléments */
+    justify-content: center;
+}
+
 .form-container {
-    max-width: 100%;
-    margin: 0 auto;
+    width: 50%; /* Le formulaire prend environ la moitié de la largeur */
+    margin: 0; /* Supprime les marges */
     padding: 20px;
-    border-radius: 8px;
+    border-radius:25px 0 0 25px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     background-color: #80aba4;
-  }
-  
-  .form {
+}
+
+.map-container {
+    width: 50%; /* La carte prend également la moitié de la largeur */
+    margin: 0; /* Supprime les marges */
+    border-radius: 0 25px 25px 0;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.form {
     display: flex;
     flex-direction: column;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-  }
-  
-  label {
+}
+
+label {
     font-weight: bold;
     margin-bottom: 5px;
-  }
-  
-  .input, .textarea {
+}
+
+.input, .textarea {
     width: 100%;
     padding: 10px;
     border-radius: 4px;
     border: 1px solid #ccc;
     font-size: 16px;
     box-sizing: border-box;
-  }
-  
-  .textarea {
+}
+
+.textarea {
     height: 150px;
     resize: none;
-  }
-  
-  .button {
+}
+
+.button {
     display: block;
     margin: 20px auto 0 auto;
     padding: 10px 20px;
@@ -49,77 +65,123 @@
     background-color: #000;
     color: #fff;
     cursor: pointer;
-  }
-  
-  .button:hover {
+}
+
+.button:hover {
     background-color: #333;
+}
+
+.social-media {
+    text-align: center;
+    margin-top: 20px;
   }
   
-  /* Pour les tablettes et les petits écrans de PC (600px à 1024px) */
-  @media (min-width: 600px) and (max-width: 1024px) {
+  .social-media h2 {
+    margin-bottom: 20px;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .social-link {
+    color: #000; /* Set icon color to black */
+    transition: color 0.3s;
+  }
+  
+  .social-link:hover {
+    color: #555; /* Change color on hover */
+  }
+
+/* Pour les tablettes et les petits écrans de PC (600px à 1024px) */
+@media (min-width: 600px) and (max-width: 1024px) {
     .form-container {
-      max-width: 80%;
-      padding: 20px;
+        max-width: 80%;
+        padding: 20px;
     }
-  
+
+    .map-container {
+        max-width: 80%;
+        padding: 20px;
+    }
+
     .input, .textarea {
-      font-size: 18px;
+        font-size: 18px;
     }
-  
+
     .button {
-      font-size: 18px;
-      padding: 12px 24px;
+        font-size: 18px;
+        padding: 12px 24px;
     }
-  }
-  
-  /* Pour les PC et les écrans moyens à larges (1025px à 1440px) */
-  @media (min-width: 1025px) and (max-width: 1440px) {
+}
+
+/* Pour les PC et les écrans moyens à larges (1025px à 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
     .form-container {
-      max-width: 600px;
-      padding: 25px;
+        max-width: 600px;
+        padding: 25px;
     }
-  
+
+    .map-container {
+        max-width: 600px;
+        padding: 25px;
+    }
+
     .input, .textarea {
-      font-size: 18px;
+        font-size: 18px;
     }
-  
+
     .button {
-      font-size: 18px;
-      padding: 12px 24px;
+        font-size: 18px;
+        padding: 12px 24px;
     }
-  }
-  
-  /* Pour les écrans très larges (1441px et plus) */
-  @media (min-width: 1441px) {
+}
+
+/* Pour les écrans très larges (1441px et plus) */
+@media (min-width: 1441px) {
     .form-container {
-      max-width: 800px;
-      padding: 30px;
+        max-width: 800px;
+        padding: 30px;
     }
-  
+
+    .map-container {
+        max-width: 800px;
+        padding: 30px;
+    }
+
     .input, .textarea {
-      font-size: 20px;
+        font-size: 20px;
     }
-  
+
     .button {
-      font-size: 20px;
-      padding: 14px 28px;
+        font-size: 20px;
+        padding: 14px 28px;
     }
-  }
-  
-  /* Pour les smartphones (moins de 600px) */
-  @media (max-width: 599px) {
-    .form-container {
-      padding: 15px;
+}
+
+/* Pour les smartphones (moins de 600px) */
+@media (max-width: 599px) {
+    .form-map-container {
+        flex-direction: column;
+        gap: 0; /* Supprime l'espace entre les éléments */
     }
-  
+
+    .form-container,
+    .map-container {
+        width: 100%;
+        margin: 0; /* Supprime les marges */
+        padding: 15px;
+    }
+
     .input, .textarea {
-      font-size: 16px;
-      padding: 8px;
+        font-size: 16px;
+        padding: 8px;
     }
-  
+
     .button {
-      font-size: 16px;
-      padding: 10px 20px;
+        font-size: 16px;
+        padding: 10px 20px;
     }
-  }
-  
+}

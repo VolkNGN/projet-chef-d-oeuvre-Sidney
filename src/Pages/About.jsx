@@ -3,6 +3,8 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import AboutSection from '../components/AboutSection/AboutSection';
 import BoutonRDV from '../components/BoutonRDV/BoutonRDV';
+import './pages.css';
+
 
 const About = () => {
   return (

@@ -28,6 +28,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Abhaya Libre SemiBold', serif;
     color: #000;
+    text-align: center;  /* Centrer les titres */
 }
 
 p {

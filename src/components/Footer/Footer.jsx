@@ -22,7 +22,7 @@ const Footer = () => {
       <div className="footer">
         <div className="footer-section atelier-info">
           <div className="atelier-name">L’ATELIER PERRIER</div>
-          <div className="atelier-address">ADRESSE: BLABLABLA</div>
+          <div className="atelier-address">ADRESSE: 32 Av. Général Vincent, 30700 Uzès</div>
         </div>
         <div className="footer-section">
           <div className="section-title">accès rapide</div>
