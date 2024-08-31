@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 import './formulaire.css';
 
 const Formulaire = () => {
@@ -11,13 +12,24 @@ const Formulaire = () => {
     message: '',
   });
 
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleRecaptchaChange = (token) => {
+    setRecaptchaToken(token);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!recaptchaToken) {
+      alert('Veuillez vérifier que vous n\'êtes pas un robot.');
+      return;
+    }
 
     emailjs.send('service_rw438w9', 'template_jief2ui', formData, 'z8AEj50JueW5yLuH2')
       .then((response) => {
@@ -35,6 +47,8 @@ const Formulaire = () => {
       email: '',
       message: '',
     });
+
+    setRecaptchaToken(null);
   };
 
   return (
@@ -100,6 +114,10 @@ const Formulaire = () => {
             className="input textarea"
           />
         </div>
+        <ReCAPTCHA
+          sitekey="6LfO6zIqAAAAANEjledOosh6iH85drMUkVfUXraC"
+          onChange={handleRecaptchaChange}
+        />
         <button type="submit" className="button">Envoyer</button>
       </form>
     </div>
