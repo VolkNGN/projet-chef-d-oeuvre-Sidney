@@ -31,7 +31,7 @@ const Formulaire = () => {
       return;
     }
 
-    emailjs.send('service_rw438w9', 'template_jief2ui', formData, 'z8AEj50JueW5yLuH2')
+    emailjs.send('service_rw438w9', 'template_mbkv15q', formData, 'z8AEj50JueW5yLuH2')
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
         alert('Message envoyé avec succès!');
