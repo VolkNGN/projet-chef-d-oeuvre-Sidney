@@ -136,10 +136,10 @@ const Formulaire = () => {
         <div className="social-media">
           <h2>Retrouvez également mon travail sur :</h2>
           <div className="social-icons">
-            <a href="https://www.facebook.com/votreprofil" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://www.facebook.com/ilonalafabrick" target="_blank" rel="noopener noreferrer" className="social-link">
               <FaFacebook size={40} />
             </a>
-            <a href="https://www.instagram.com/votreprofil" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://www.instagram.com/ilonaperrier/" target="_blank" rel="noopener noreferrer" className="social-link">
               <FaInstagram size={40} />
             </a>
           </div>
