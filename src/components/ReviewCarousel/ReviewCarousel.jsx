@@ -18,12 +18,12 @@ const reviews = [
   {
     author: 'William Cossolias',
     avatar: 'https://api.dicebear.com/9.x/initials/svg?seed=William%20Cossolias',
-    text: "Ilona n'est pas seulement adorable et gentille, c'est une merveilleuse tapissière. Nous ne pourrions être plus heureux de la tête de lit qu'elle a créée pour nous, ainsi que des deux fauteuils qu'elle a récupérés.",
+    text: "Ilona n'est pas seulement adorable, c'est une merveilleuse tapissière. Nous ne pourrions être plus heureux de la tête de lit qu'elle a créée pour nous.",
   },
   {
     author: 'Sophie Laurent',
     avatar: 'https://api.dicebear.com/9.x/initials/svg?seed=Sophie%20Laurent',
-    text: "Je suis absolument ravie de mon canapé restauré par Ilona. Le travail est impeccable et le tissu choisi est parfait. Je recommande vivement son service à tous ceux qui cherchent la qualité et le professionnalisme.",
+    text: "Je suis absolument ravie de mon canapé restauré par Ilona. Le travail est impeccable et le tissu choisi est parfait.",
   },
   {
     author: 'Marc Dubois',
@@ -48,7 +48,7 @@ const reviews = [
   {
     author: 'Thomas Blanchard',
     avatar: 'https://api.dicebear.com/9.x/initials/svg?seed=Thomas%20Blanchard',
-    text: "Ilona a restauré notre chaise ancienne avec une grande attention aux détails. Le tissu est parfaitement assorti à notre décor, et nous sommes ravis du résultat.",
+    text: "Ilona a restauré notre chaise ancienne avec une grande attention aux détails. Nous sommes ravis du résultat.",
   },
   {
     author: 'Alice Durand',
