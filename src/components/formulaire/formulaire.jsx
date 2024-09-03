@@ -60,6 +60,7 @@ const Formulaire = () => {
           <div className="form-group">
             <label htmlFor="firstName">Prénom*</label>
             <input
+              data-testid="first-name-input"
               type="text"
               id="firstName"
               name="firstName"
@@ -72,6 +73,7 @@ const Formulaire = () => {
           <div className="form-group">
             <label htmlFor="lastName">Nom*</label>
             <input
+              data-testid="last-name-input"
               type="text"
               id="lastName"
               name="lastName"
@@ -84,6 +86,7 @@ const Formulaire = () => {
           <div className="form-group">
             <label htmlFor="phone">Téléphone*</label>
             <input
+              data-testid="phone-input"
               type="tel"
               id="phone"
               name="phone"
@@ -96,6 +99,7 @@ const Formulaire = () => {
           <div className="form-group">
             <label htmlFor="email">Email*</label>
             <input
+              data-testid="email-input"
               type="email"
               id="email"
               name="email"
@@ -108,6 +112,7 @@ const Formulaire = () => {
           <div className="form-group">
             <label htmlFor="message">Message*</label>
             <textarea
+              data-testid="message-input"
               id="message"
               name="message"
               value={formData.message}
@@ -117,10 +122,11 @@ const Formulaire = () => {
             />
           </div>
           <ReCAPTCHA
+            data-testid="recaptcha"
             sitekey="6LfO6zIqAAAAANEjledOosh6iH85drMUkVfUXraC"
             onChange={handleRecaptchaChange}
           />
-          <button type="submit" className="button">Envoyer</button>
+          <button data-testid="submit-button" type="submit" className="button">Envoyer</button>
         </form>
       </div>
       <div className="map-container">
